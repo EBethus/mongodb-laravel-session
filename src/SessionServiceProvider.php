@@ -18,10 +18,6 @@ class SessionServiceProvider extends ParentServiceProvider
      */
     public function boot()
     {
-        if (config('session.driver') !== 'mongodb') {
-            return;
-        }
-
         Session::extend('mongodb', function ($app) {
             $configs = $app['config']->get('session');
             $connection = $app['db']->connection($configs['connection'] ?? null);
