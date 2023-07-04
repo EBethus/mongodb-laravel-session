@@ -2,7 +2,6 @@
     "name": "ebethus/mongodb-laravel-session",
     "description": "A mongodb session driver for laravel",
     "type": "library",
-    "version": "4.0.1",
     "require": {
         "jenssegers/mongodb": "~3.9",
         "illuminate/session": "^9.0"
