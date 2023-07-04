@@ -1,5 +1,5 @@
 {
-    "name": "1ff/laravel-mongodb-session",
+    "name": "ebethus/mongodb-laravel-session",
     "description": "A mongodb session driver for laravel",
     "type": "library",
     "version": "4.0.1",
@@ -16,6 +16,10 @@
         {
             "name": "Tihomir Tonov",
             "email": "tishoj@gmail.com"
+        },
+        {
+            "name": "Alberto Berroteran Sanchez",
+            "email": "alberroteran@gmail.com"
         }
     ],
     "minimum-stability": "stable",

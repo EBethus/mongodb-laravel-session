@@ -28,7 +28,7 @@ class MongoDbSessionHandler implements SessionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function open($savePath, $sessionName)
+    public function open(string $savePath, string $sessionName) :bool
     {
         return true;
     }
@@ -36,7 +36,7 @@ class MongoDbSessionHandler implements SessionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function close()
+    public function close() : bool
     {
         return true;
     }
@@ -44,7 +44,7 @@ class MongoDbSessionHandler implements SessionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function read($sessionId)
+    public function read (string $sessionId) : string|false
     {
         $session = $this->query()->find($sessionId);
 
@@ -54,7 +54,7 @@ class MongoDbSessionHandler implements SessionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function write($sessionId, $data)
+    public function write(string $sessionId, string $data) : bool
     {
         try {
             return (bool) $this->query()
@@ -69,7 +69,7 @@ class MongoDbSessionHandler implements SessionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function destroy($sessionId)
+    public function destroy(string $sessionId) : bool
     {
         $this->query()->where('_id', $sessionId)->delete();
 
@@ -79,7 +79,7 @@ class MongoDbSessionHandler implements SessionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function gc($lifetime)
+    public function gc(int $lifetime) : int|false
     {
         // Garbage collection is handled by ttl index in the database
         return true;
