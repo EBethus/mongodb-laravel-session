@@ -38,7 +38,10 @@ class SessionServiceProvider extends ParentServiceProvider
     {
         // register the collection indexing commands and migrations if running in cli
         if ($this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
+            if (config('cache.stores.mongodb.migrations')) {
+                $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
+            }
+
             $this->commands([
                 MongodbSessionDropIndex::class,
                 MongodbSessionIndex::class,
